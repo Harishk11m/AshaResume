@@ -88,9 +88,42 @@
     <div class="contact">
       <p><span class="highlight">Phone:</span> +91 9172978078, +91 9004031037</p>
       <p><span class="highlight">Email:</span> <a href="mailto:asha.bhadauriya@gmail.com">asha.bhadauriya@gmail.com</a></p>
-      <p><span class="highlight">Address:</span>Surat, Gujarat</p>
+      <p><span class="highlight">Address:</span> Surat, Gujarat</p>
+    </div>
+    
+    <div class="section">
+      <h2 onclick="toggleSection(this)">Professional Experience</h2>
+      <div class="section-content" id="experience-section">
+        <p id="total-experience"><strong>Total Experience:</strong> Calculating...</p>
+        <ul id="experience-list">
+          <li data-from="2023-12" data-to="present"><strong>Ventura Airconnect Ltd.</strong> (Dec 2023 -Present)– Quality Manager</li>
+          <li data-from="2019-06" data-to="2019-09"><strong>Indamer Aviation Pvt. Ltd.</strong>(June 2019- Sep 2019) – Deputy Quality Manager</li>
+          <li data-from="2018-04" data-to="2019-05"><strong>AAA Aviation Pvt. Ltd.</strong>(April 2018- May 2019) – Quality Manager</li>
+          <li data-from="2017-08" data-to="2018-03"><strong>MAB Aviation Pvt. Ltd.</strong>(Aug 2017 - Mar 2018) – Quality Manager</li>
+          <li data-from="2016-07" data-to="2017-07"><strong>AAA Aviation Pvt. Ltd.</strong>(Jul 2016- Jul 2017) – Technical Officer</li>
+          <li data-from="2008-06" data-to="2014-07"><strong>Indamer</strong>(Jun 2008- Jul 2014) – Technician: Line & Base Maintenance, Landing Gear, Wheel & Brake Shop, Propeller Shop</li>
+        </ul>
+      </div>
     </div>
 
+<div class="section">
+      <h2 onclick="toggleSection(this)">Trainings</h2>
+      <div class="section-content">
+        <ul>
+          <li>Human Factor Training (Dec 2023)</li>
+          <li>Safety Awareness (AVSEC) (Feb 2024)</li>
+          <li>Quality Auditor Training (Mar 2018)</li>
+          <li>SMS Training (Dec 2023)</li>
+          <li>Embraer ERJ 135 – AE3007A Engine Level 1 (Sep 2019)</li>
+          <li>CAR 145, CAR M (Dec 2023)</li>
+          <li>Fuel Tank Safety (Jun 2019)</li>
+          <li>Global 5000/6000 – BR710A2-20 Engine Level 1 (Aug 2019)</li>
+          <li>Cessna 208B – PT6A-114A Level 1 (Dec 2023)</li>
+          <li>Cessna 208B EX – PT6A-140 Level 1 (Dec 2023)</li>
+          <li>Cessna 182T – LYCOMING-IO-540-AB1A5 Level 1 (Dec 2023)</li>
+        </ul>
+      </div>
+    </div>
 
     <div class="section">
       <h2 onclick="toggleSection(this)">Professional Qualifications</h2>
@@ -111,20 +144,7 @@
       </div>
     </div>
 
-    <div class="section">
-      <h2 onclick="toggleSection(this)">Professional Experience</h2>
-      <div class="section-content">
-        <p><strong>Total Experience:</strong> 9 years 11 months</p>
-        <ul>
-          <li><strong>Ventura Airconnect Ltd.</strong> (Dec 2023 – Present) – Quality Manager</li>
-          <li><strong>Indamer Aviation Pvt. Ltd.</strong> (Jun 2019 – Sep 2019) – Deputy Quality Manager</li>
-          <li><strong>AAA Aviation Pvt. Ltd.</strong> (Apr 2018 – May 2019) – Quality Manager</li>
-          <li><strong>MAB Aviation Pvt. Ltd.</strong> (Aug 2017 – Mar 2018) – Quality Manager</li>
-          <li><strong>AAA Aviation Pvt. Ltd.</strong> (Jul 2016 – Jul 2017) – Technical Officer</li>
-          <li><strong>Indamer</strong> (Jun 2008 – Jul 2014) – Technician: Line & Base Maintenance, Landing Gear, Wheel & Brake Shop, Propeller Shop</li>
-        </ul>
-      </div>
-    </div>
+    
 
     <div class="section">
       <h2 onclick="toggleSection(this)">Educational Qualifications</h2>
@@ -133,25 +153,6 @@
           <li>AME – Academy of Aerospace & Aviation, Indore (2008)</li>
           <li>Intermediate – Grasim Higher Secondary School, Nagda (2005)</li>
           <li>High School – Grasim Higher Secondary School, Nagda (2002)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 onclick="toggleSection(this)">Trainings</h2>
-      <div class="section-content">
-        <ul>
-          <li>Human Factor Training (Dec 2023)</li>
-          <li>Safety Awareness (AVSEC) (Feb 2024)</li>
-          <li>Quality Auditor Training (Mar 2018)</li>
-          <li>SMS Training (Dec 2023)</li>
-          <li>Embraer ERJ 135 – AE3007A Engine Level 1 (Sep 2019)</li>
-          <li>CAR 145, CAR M (Dec 2023)</li>
-          <li>Fuel Tank Safety (Jun 2019)</li>
-          <li>Global 5000/6000 – BR710A2-20 Engine Level 1 (Aug 2019)</li>
-          <li>Cessna 208B – PT6A-114A Level 1 (Dec 2023)</li>
-          <li>Cessna 208B EX – PT6A-140 Level 1 (Dec 2023)</li>
-          <li>Cessna 182T – LYCOMING-IO-540-AB1A5 Level 1 (Dec 2023)</li>
         </ul>
       </div>
     </div>
@@ -176,15 +177,37 @@
   </div>
 
   <script>
-  function toggleSection(header) {
-    const content = header.nextElementSibling;
-    const isVisible = content.style.display === "block";
-    content.style.display = isVisible ? "none" : "block";
-    header.classList.toggle("active", !isVisible);
-  }
+    function toggleSection(header) {
+      const content = header.nextElementSibling;
+      const isVisible = content.style.display === "block";
+      content.style.display = isVisible ? "none" : "block";
+      header.classList.toggle("active", !isVisible);
+    }
 
-  // No auto-expansion on load — sections remain collapsed
-</script>
+    function calculateExperience() {
+      const list = document.querySelectorAll('#experience-list li');
+      let totalMonths = 0;
 
+      list.forEach(li => {
+        const from = li.getAttribute('data-from');
+        let to = li.getAttribute('data-to');
+        const fromDate = new Date(from + "-01");
+        const toDate = to === 'present' ? new Date() : new Date(to + "-01");
+
+        let months = (toDate.getFullYear() - fromDate.getFullYear()) * 12 + (toDate.getMonth() - fromDate.getMonth());
+        totalMonths += months;
+
+        const years = Math.floor(months / 12);
+        const remainingMonths = months % 12;
+        li.innerHTML += ` <em>(${years}y ${remainingMonths}m)</em>`;
+      });
+
+      const totalYears = Math.floor(totalMonths / 12);
+      const totalRemMonths = totalMonths % 12;
+      document.getElementById('total-experience').innerHTML = `<strong>Total Experience:</strong> ${totalYears} years ${totalRemMonths} months`;
+    }
+
+    window.onload = calculateExperience;
+  </script>
 </body>
 </html>

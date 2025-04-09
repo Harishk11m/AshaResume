@@ -1,311 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harish Kumar - Aircraft Maintenance Professional</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white; /* Added background for better visual consistency */
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 12px; /* Added border-radius for a softer look */
-        }
-
-        h1,
-        h2,
-        h3 {
-            color: #0056b3;
-        }
-
-        .section-header {
-            cursor: pointer;
-            padding-bottom: 5px;
-            margin: 20px 0 10px;
-            border-bottom: 2px solid #0056b3;
-            color: #2c3e50; /* Changed color for better readability */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .section-header h2 {
-            margin-bottom: 0;
-        }
-
-        .section-header::after {
-            content: '▼';
-            font-size: 16px;
-            transition: transform 0.2s;
-        }
-
-        .section-header.active::after {
-            transform: rotate(-180deg);
-        }
-
-        .collapsible-content {
-            display: none;
-            margin-bottom: 20px;
-            padding-left: 15px; /* Added padding to align with the previous style */
-        }
-
-        .contact-info p {
-            margin: 5px 0;
-        }
-
-        .experience-item {
-            margin-bottom: 15px;
-        }
-
-        .experience-item h3 {
-            margin-bottom: 5px;
-        }
-
-        .skills-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .skills-list li {
-            background-color: #e7f1ff;
-            color: #333;
-            padding: 5px 10px;
-            margin: 5px;
-            border-radius: 15px;
-            border: 1px solid #b3d9ff;
-        }
-
-        .qualifications-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .qualifications-list li {
-            margin-bottom: 5px;
-        }
-
-        /* Add print styles */
-        @media print {
-            .container {
-                border: none;
-                box-shadow: none;
-            }
-
-            .print-button,
-            .section-header::after {
-                display: none;
-            }
-
-            .collapsible-content {
-                display: block !important;
-            }
-        }
-
-        a {
-            color: inherit;
-            text-decoration: underline;
-            position: relative;
-            /* Required for absolute positioning of tooltip */
-        }
-
-        a .tooltip {
-            visibility: hidden;
-            width: 120px;
-            background-color: #0056b3;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        a:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        a .tooltip::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #0056b3 transparent transparent transparent;
-        }
-
-        .print-button {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .print-button button {
-            padding: 10px 20px;
-            background-color: #0056b3;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume - Asha Bhadauriya</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 20px;
+      color: #2c3e50;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    h2 {
+      cursor: pointer;
+      padding-bottom: 5px;
+      margin: 20px 0 10px;
+      border-bottom: 2px solid #3498db;
+      color: #2c3e50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h2::after {
+      content: '▼';
+      font-size: 16px;
+      transition: transform 0.2s;
+    }
+    h2.active::after {
+      transform: rotate(-180deg);
+    }
+    .section-content {
+      display: none;
+      margin-bottom: 20px;
+    }
+    .contact p {
+      margin: 5px 0;
+    }
+    .highlight {
+      color: #2c3e50;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .print-btn {
+      display: block;
+      width: 200px;
+      margin: 40px auto 0;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .print-btn:hover {
+      background-color: #2980b9;
+    }
+    @media print {
+      .print-btn, h2::after {
+        display: none;
+      }
+      .section-content {
+        display: block !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Harish Kumar</h1>
-        <div class="contact-info">
-             <p>+91 9004031037
-             </p>
-            <p>
-                <b>Email:</b>
-                <a href="mailto:Harish.k11m@gmail.com">Harish.k11m@gmail.com</a>
-            </p>
-            <p><b>Address:</b> 113/547, Ambika Skim-1, Varsamedi, Kachchh, Gujarat-370110</p>
-        </div>
 
-        <div class="section">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h2>Experience</h2>
-            </div>
-            <div class="section-content">
-                <div class="experience-item">
-                    <h3>Spicejet Ltd. (2011 - Till Date)</h3>
-                    <p>
-                        Working as a Certifying Mechanic on <a href="https://www.google.com/search?q=Q400+aircraft"
-                            target="_blank">Q400<span class="tooltip">Click to know more</span></a> in Line Maintenance
-                        Department posted in Kandla.
-                    </p>
-                </div>
-                <div class="experience-item">
-                    <h3>Indamer Company Pvt. Ltd. (2009 - 2011)</h3>
-                    <p>
-                        Worked as a Technician in Base Maintenance Department as well as Line Maintenance Department on
-                        <a href="https://www.google.com/search?q=Bell+407+helicopter" target="_blank">Bell 407<span
-                                class="tooltip">Click to know more</span></a>,
-                        <a href="https://www.google.com/search?q=Hawker+800+aircraft" target="_blank">Hawker 800/850
-                            XP<span class="tooltip">Click to know more</span></a>,
-                        <a href="https://www.google.com/search?q=Cessna+Citation+CJ2+525A" target="_blank">Cessna Citation
-                            CJ2 525A<span class="tooltip">Click to know more</span></a>,
-                        <a href="https://www.google.com/search?q=Super+King+B200+aircraft" target="_blank">Super King
-                            B200<span class="tooltip">Click to know more</span></a>, and
-                        <a href="https://www.google.com/search?q=King+Air+C90A+aircraft" target="_blank">King Air
-                            C90A/B<span class="tooltip">Click to know more</span></a>.
-                    </p>
-                </div>
-                <div class="experience-item">
-                    <h3>Deccan Aviation Pvt. Ltd. (2008)</h3>
-                    <p>
-                        Worked as an apprentice in BMD and LMD on
-                        <a href="https://www.google.com/search?q=Cessna+Caravan+208B+aircraft" target="_blank">Cessna
-                            Caravan 208B<span class="tooltip">Click to know more</span></a>,
-                        <a href="https://www.google.com/search?q=King+Air+C90A+aircraft" target="_blank">King Air
-                            C90A<span class="tooltip">Click to know more</span></a>,
-                        <a href="https://www.google.com/search?q=Pilatus+PC+12+aircraft" target="_blank">Pilatus PC
-                            12/45<span class="tooltip">Click to know more</span></a>,
-                        <a href="https://www.google.com/search?q=Bell+407+helicopter" target="_blank">Bell 407<span
-                                class="tooltip">Click to know more</span></a>.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h2>Professional Qualifications</h2>
-            </div>
-            <div class="section-content">
-                <p>All B1.1 <a href="result.html" target="_blank">module<span class="tooltip">Click to know more</span></a>
-                    conducted by DGCA</p>
-
-                <p><b>Authorisation:</b> CAT A Authorisation on Q400 fitted with P & W 150 A.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h2>Education</h2>
-            </div>
-            <div class="section-content">
-                <p><b>Aircraft Maintenance Engineering Course:</b> Completed AME Course in Mechanical stream from AAA,
-                    Indore (2005 - 2008)</p>
-                <p><b>Higher and Higher Secondary:</b> 10th and 12th in PCM from RBIC, Agra (2000 - 2004)</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h2>Skills</h2>
-            </div>
-            <div class="section-content">
-                <ul class="skills-list">
-                    <li>Aircraft Maintenance</li>
-                    <li>Airframe Troubleshooting</li>
-                    <li>Engine Troubleshooting</li>
-                    <li>Microsoft Office Suite</li>
-                    <li>Team Management</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header" onclick="toggleSection(this)">
-                <h2>Hobbies</h2>
-            </div>
-            <div class="section-content">
-                <p>Guitar, Piano</p>
-            </div>
-        </div>
+  <div class="container">
+    <h1>Asha Bhadauriya</h1>
+    <div class="contact">
+      <p><span class="highlight">Phone:</span> +91 9172978078, +91 9004031037</p>
+      <p><span class="highlight">Email:</span> <a href="mailto:asha.bhadauriya@gmail.com">asha.bhadauriya@gmail.com</a></p>
+      <p><span class="highlight">Address:</span> Surat, Gujarat</p>
     </div>
-    <div class="print-button">
-        <button onclick="window.print()">Print Resume</button>
+    
+    <div class="section">
+      <h2 onclick="toggleSection(this)">Professional Experience</h2>
+      <div class="section-content" id="experience-section">
+        <p id="total-experience"><strong>Total Experience:</strong> Calculating...</p>
+        <ul id="experience-list">
+          <li data-from="2023-12" data-to="present"><strong>Ventura Airconnect Ltd.</strong> (Dec 2023 -Present)– Quality Manager</li>
+          <li data-from="2019-06" data-to="2019-09"><strong>Indamer Aviation Pvt. Ltd.</strong>(June 2019- Sep 2019) – Deputy Quality Manager</li>
+          <li data-from="2018-04" data-to="2019-05"><strong>AAA Aviation Pvt. Ltd.</strong>(April 2018- May 2019) – Quality Manager</li>
+          <li data-from="2017-08" data-to="2018-03"><strong>MAB Aviation Pvt. Ltd.</strong>(Aug 2017 - Mar 2018) – Quality Manager</li>
+          <li data-from="2016-07" data-to="2017-07"><strong>AAA Aviation Pvt. Ltd.</strong>(Jul 2016- Jul 2017) – Technical Officer</li>
+          <li data-from="2008-06" data-to="2014-07"><strong>Indamer</strong>(Jun 2008- Jul 2014) – Technician: Line & Base Maintenance, Landing Gear, Wheel & Brake Shop, Propeller Shop</li>
+        </ul>
+      </div>
     </div>
 
-    <script>
-        function toggleSection(header) {
-            const content = header.nextElementSibling;
-            const isVisible = content.style.display === "block";
-            content.style.display = isVisible ? "none" : "block";
-            header.classList.toggle("active", !isVisible);
-        }
+<div class="section">
+      <h2 onclick="toggleSection(this)">Trainings</h2>
+      <div class="section-content">
+        <ul>
+          <li>Human Factor Training (Dec 2023)</li>
+          <li>Safety Awareness (AVSEC) (Feb 2024)</li>
+          <li>Quality Auditor Training (Mar 2018)</li>
+          <li>SMS Training (Dec 2023)</li>
+          <li>Embraer ERJ 135 – AE3007A Engine Level 1 (Sep 2019)</li>
+          <li>CAR 145, CAR M (Dec 2023)</li>
+          <li>Fuel Tank Safety (Jun 2019)</li>
+          <li>Global 5000/6000 – BR710A2-20 Engine Level 1 (Aug 2019)</li>
+          <li>Cessna 208B – PT6A-114A Level 1 (Dec 2023)</li>
+          <li>Cessna 208B EX – PT6A-140 Level 1 (Dec 2023)</li>
+          <li>Cessna 182T – LYCOMING-IO-540-AB1A5 Level 1 (Dec 2023)</li>
+        </ul>
+      </div>
+    </div>
 
-        // Initially collapse all sections except the contact information
-        document.addEventListener('DOMContentLoaded', function() {
-            const sectionHeaders = document.querySelectorAll('.section-header');
-            sectionHeaders.forEach(header => {
-                const content = header.nextElementSibling;
-                if (content) {
-                    content.style.display = 'none';
-                }
-            });
+    <div class="section">
+      <h2 onclick="toggleSection(this)">Professional Qualifications</h2>
+      <div class="section-content">
+        <p>Completed 5 semesters of AME (Mechanical stream) in Dec 2007 from Academy of Aerospace & Aviation, Indore. Completed 6-month OJT at INDAMER Company Pvt. Ltd., Mumbai.</p>
+      </div>
+    </div>
 
-            // Optionally keep Contact Information open
-            const contactHeader = document.querySelector('.contact-info').previousElementSibling;
-            const contactContent = document.querySelector('.contact-info');
-            if (contactHeader && contactContent) {
-                contactHeader.classList.add('active');
-                contactContent.style.display = 'block';
-            }
-        });
-    </script>
+    <div class="section">
+      <h2 onclick="toggleSection(this)">License Examination Details</h2>
+      <div class="section-content">
+        <ul>
+          <li>PAPER IV - PT6A-42</li>
+          <li>PAPER III - CT (Jet Engine)</li>
+          <li>PAPER II - General Engineering</li>
+          <li>PAPER I - Civil Aviation Requirement</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2 onclick="toggleSection(this)">Educational Qualifications</h2>
+      <div class="section-content">
+        <ul>
+          <li>AME – Academy of Aerospace & Aviation, Indore (2008)</li>
+          <li>Intermediate – Grasim Higher Secondary School, Nagda (2005)</li>
+          <li>High School – Grasim Higher Secondary School, Nagda (2002)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggleSection(this)">Personal Details</h2>
+      <div class="section-content">
+        <ul>
+          <li><span class="highlight">Father's Name:</span> Mr. Kaptan Singh Bhadauriya</li>
+          <li><span class="highlight">Nationality:</span> Indian</li>
+          <li><span class="highlight">Marital Status:</span> Married</li>
+          <li><span class="highlight">Gender:</span> Female</li>
+          <li><span class="highlight">Languages Known:</span> English, Hindi</li>
+          <li><span class="highlight">PAN Card:</span> BEYPB3931G</li>
+          <li><span class="highlight">Passport:</span> K7854019</li>
+          <li><span class="highlight">Permanent Address:</span> 113/547, Ambika Nagar, Near Kandla Airport, Kutch, Gujarat</li>
+        </ul>
+      </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Print Resume</button>
+  </div>
+
+  <script>
+    function toggleSection(header) {
+      const content = header.nextElementSibling;
+      const isVisible = content.style.display === "block";
+      content.style.display = isVisible ? "none" : "block";
+      header.classList.toggle("active", !isVisible);
+    }
+
+    function calculateExperience() {
+      const list = document.querySelectorAll('#experience-list li');
+      let totalMonths = 0;
+
+      list.forEach(li => {
+        const from = li.getAttribute('data-from');
+        let to = li.getAttribute('data-to');
+        const fromDate = new Date(from + "-01");
+        const toDate = to === 'present' ? new Date() : new Date(to + "-01");
+
+        let months = (toDate.getFullYear() - fromDate.getFullYear()) * 12 + (toDate.getMonth() - fromDate.getMonth());
+        totalMonths += months;
+
+        const years = Math.floor(months / 12);
+        const remainingMonths = months % 12;
+        li.innerHTML += ` <em>(${years}y ${remainingMonths}m)</em>`;
+      });
+
+      const totalYears = Math.floor(totalMonths / 12);
+      const totalRemMonths = totalMonths % 12;
+      document.getElementById('total-experience').innerHTML = `<strong>Total Experience:</strong> ${totalYears} years ${totalRemMonths} months`;
+    }
+
+    window.onload = calculateExperience;
+  </script>      
 </body>
-
 </html>

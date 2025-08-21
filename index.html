@@ -1,213 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resume - Asha Bhadauriya</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f7fa;
-      margin: 0;
-      padding: 20px;
-      color: #2c3e50;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-    }
-    h1 {
-      margin-bottom: 30px;
-    }
-    h2 {
-      cursor: pointer;
-      padding-bottom: 5px;
-      margin: 20px 0 10px;
-      border-bottom: 2px solid #3498db;
-      color: #2c3e50;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    h2::after {
-      content: '▼';
-      font-size: 16px;
-      transition: transform 0.2s;
-    }
-    h2.active::after {
-      transform: rotate(-180deg);
-    }
-    .section-content {
-      display: none;
-      margin-bottom: 20px;
-    }
-    .contact p {
-      margin: 5px 0;
-    }
-    .highlight {
-      color: #2c3e50;
-      font-weight: 600;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .print-btn {
-      display: block;
-      width: 200px;
-      margin: 40px auto 0;
-      padding: 12px;
-      font-size: 16px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .print-btn:hover {
-      background-color: #2980b9;
-    }
-    @media print {
-      .print-btn, h2::after {
-        display: none;
-      }
-      .section-content {
-        display: block !important;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume - Asha Bhadauriya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+        .resume-container {
+            display: flex;
+            max-width: 1000px;
+            margin: 40px auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 35%;
+            background-color: #2c3e50; /* Dark blue-grey */
+            color: #ecf0f1;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .main-content {
+            width: 65%;
+            background-color: #ffffff;
+            padding: 40px 50px;
+        }
+        .profile-photo-container {
+            margin-bottom: 25px;
+        }
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #3498db;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #ecf0f1;
+        }
+        .header p {
+            margin: 5px 0 20px;
+            font-size: 1.1em;
+            color: #bdc3c7;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        .contact-item span {
+            margin-left: 10px;
+        }
+        .contact-item a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        .sidebar .section-title {
+            color: #ecf0f1;
+            border-color: #ecf0f1;
+        }
+        .experience-item, .training-item, .list-item {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .job-title {
+            font-weight: 700;
+            color: #34495e;
+            font-size: 1.2em;
+        }
+        .company {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+        .dates {
+            font-size: 0.9em;
+            color: #95a5a6;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .summary-text {
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .resume-container {
+                flex-direction: column;
+                margin: 20px;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+                padding: 20px;
+            }
+            .sidebar {
+                border-bottom: 5px solid #3498db;
+            }
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+            }
+            .profile-photo {
+                border: 2px solid #3498db;
+            }
+            .sidebar {
+                page-break-after: avoid;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>Asha Bhadauriya</h1>
-    <div class="contact">
-      <p><span class="highlight">Phone:</span> +91 9172978078, +91 9004031037</p>
-      <p><span class="highlight">Email:</span> <a href="mailto:asha.bhadauriya@gmail.com">asha.bhadauriya@gmail.com</a></p>
-      <p><span class="highlight">Address:</span> Surat, Gujarat</p>
-    </div>
-    
-    <div class="section">
-      <h2 onclick="toggleSection(this)">Professional Experience</h2>
-      <div class="section-content" id="experience-section">
-        <p id="total-experience"><strong>Total Experience:</strong> Calculating...</p>
-        <ul id="experience-list">
-          <li data-from="2023-12" data-to="present"><strong>Ventura Airconnect Ltd.</strong> (Dec 2023 -Present)– Quality Manager</li>
-          <li data-from="2019-06" data-to="2019-09"><strong>Indamer Aviation Pvt. Ltd.</strong>(June 2019- Sep 2019) – Deputy Quality Manager</li>
-          <li data-from="2018-04" data-to="2019-05"><strong>AAA Aviation Pvt. Ltd.</strong>(April 2018- May 2019) – Quality Manager</li>
-          <li data-from="2017-08" data-to="2018-03"><strong>MAB Aviation Pvt. Ltd.</strong>(Aug 2017 - Mar 2018) – Quality Manager</li>
-          <li data-from="2016-07" data-to="2017-07"><strong>AAA Aviation Pvt. Ltd.</strong>(Jul 2016- Jul 2017) – Technical Officer</li>
-          <li data-from="2008-06" data-to="2014-07"><strong>Indamer</strong>(Jun 2008- Jul 2014) – Technician: Line & Base Maintenance, Landing Gear, Wheel & Brake Shop, Propeller Shop</li>
-        </ul>
-      </div>
-    </div>
+<div class="resume-container">
+    <div class="sidebar">
+        <div class="profile-photo-container">
+            <img src="pp.jpg" alt="Asha Bhadauriya" class="profile-photo">
+        </div>
+        <div class="header">
+            <h1>Asha Bhadauriya</h1>
+            <p>Quality Manager</p>
+        </div>
 
-<div class="section">
-      <h2 onclick="toggleSection(this)">Trainings</h2>
-      <div class="section-content">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-item">
+            <span>+91 9172978078</span>
+        </div>
+        <div class="contact-item">
+            <a href="mailto:asha.bhadauriya@gmail.com">asha.bhadauriya@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <span>Surat, Gujarat</span>
+        </div>
+        
+        <h2 class="section-title">Personal Details</h2>
+        <div class="list-item">
+            <strong>Nationality:</strong> Indian
+        </div>
+        <div class="list-item">
+            <strong>Languages Known:</strong> English, Hindi
+        </div>
+
+        <h2 class="section-title">Licenses & Exams</h2>
         <ul>
-          <li>Human Factor Training (Dec 2023)</li>
-          <li>Safety Awareness (AVSEC) (Feb 2024)</li>
-          <li>Quality Auditor Training (Mar 2018)</li>
-          <li>SMS Training (Dec 2023)</li>
-          <li>Embraer ERJ 135 – AE3007A Engine Level 1 (Sep 2019)</li>
-          <li>CAR 145, CAR M (Dec 2023)</li>
-          <li>Fuel Tank Safety (Jun 2019)</li>
-          <li>Global 5000/6000 – BR710A2-20 Engine Level 1 (Aug 2019)</li>
-          <li>Cessna 208B – PT6A-114A Level 1 (Dec 2023)</li>
-          <li>Cessna 208B EX – PT6A-140 Level 1 (Dec 2023)</li>
-          <li>Cessna 182T – LYCOMING-IO-540-AB1A5 Level 1 (Dec 2023)</li>
+            <li class="list-item">Paper I: Civil Aviation Requirement</li>
+            <li class="list-item">Paper II: General Engineering</li>
+            <li class="list-item">Paper III: CT (Jet Engine)</li>
+            <li class="list-item">Paper IV: PT6A-42</li>
         </ul>
-      </div>
     </div>
 
-    <div class="section">
-      <h2 onclick="toggleSection(this)">Professional Qualifications</h2>
-      <div class="section-content">
-        <p>Completed 5 semesters of AME (Mechanical stream) in Dec 2007 from Academy of Aerospace & Aviation, Indore. Completed 6-month OJT at INDAMER Company Pvt. Ltd., Mumbai.</p>
-      </div>
+    <div class="main-content">
+        <div class="section">
+            <h2 class="section-title">Summary</h2>
+            <p class="summary-text">A detail-oriented and experienced Quality Manager in the aviation industry with a proven track record in various maintenance and quality assurance roles. Possessing a solid foundation in both line and base maintenance, with expertise in a range of aircraft engines and regulatory requirements (CAR 145, CAR M). Seeking to leverage extensive experience and technical skills to contribute to a dynamic and challenging environment.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-item" data-from="2023-12" data-to="present">
+                <div class="job-title">Quality Manager</div>
+                <div class="company">Ventura Airconnect Ltd.</div>
+                <div class="dates"></div>
+            </div>
+            <div class="experience-item" data-from="2019-06" data-to="2019-09">
+                <div class="job-title">Deputy Quality Manager</div>
+                <div class="company">Indamer Aviation Pvt. Ltd.</div>
+                <div class="dates"></div>
+            </div>
+            <div class="experience-item" data-from="2018-04" data-to="2019-05">
+                <div class="job-title">Quality Manager</div>
+                <div class="company">AAA Aviation Pvt. Ltd.</div>
+                <div class="dates"></div>
+            </div>
+            <div class="experience-item" data-from="2017-08" data-to="2018-03">
+                <div class="job-title">Quality Manager</div>
+                <div class="company">MAB Aviation Pvt. Ltd.</div>
+                <div class="dates"></div>
+            </div>
+            <div class="experience-item" data-from="2016-07" data-to="2017-07">
+                <div class="job-title">Technical Officer</div>
+                <div class="company">AAA Aviation Pvt. Ltd.</div>
+                <div class="dates"></div>
+            </div>
+            <div class="experience-item" data-from="2008-06" data-to="2014-07">
+                <div class="job-title">Technician: Line & Base Maintenance</div>
+                <div class="company">Indamer Aviation Pvt. Ltd.</div>
+                <div class="dates"></div>
+                <ul>
+                    <li>Specialized in Landing Gear, Wheel & Brake Shop, and Propeller Shop.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Training & Certifications</h2>
+            <ul>
+                <li class="training-item">Human Factor Training (Dec 2023)</li>
+                <li class="training-item">Safety Awareness (AVSEC) (Feb 2024)</li>
+                <li class="training-item">Quality Auditor Training (Mar 2018)</li>
+                <li class="training-item">SMS Training (Dec 2023)</li>
+                <li class="training-item">CAR 145, CAR M (Dec 2023)</li>
+                <li class="training-item">Fuel Tank Safety (Jun 2019)</li>
+                <li class="training-item">Embraer ERJ 135 – AE3007A Engine Level 1 (Sep 2019)</li>
+                <li class="training-item">Global 5000/6000 – BR710A2-20 Engine Level 1 (Aug 2019)</li>
+                <li class="training-item">Cessna 208B – PT6A-114A Level 1 (Dec 2023)</li>
+                <li class="training-item">Cessna 208B EX – PT6A-140 Level 1 (Dec 2023)</li>
+                <li class="training-item">Cessna 182T – LYCOMING-IO-540-AB1A5 Level 1 (Dec 2023)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <ul>
+                <li class="list-item">**AME**: Academy of Aerospace & Aviation, Indore (2008)</li>
+                <li class="list-item">**Intermediate**: Grasim Higher Secondary School, Nagda (2005)</li>
+                <li class="list-item">**High School**: Grasim Higher Secondary School, Nagda (2002)</li>
+            </ul>
+        </div>
     </div>
+</div>
 
-    <div class="section">
-      <h2 onclick="toggleSection(this)">License Examination Details</h2>
-      <div class="section-content">
-        <ul>
-          <li>PAPER IV - PT6A-42</li>
-          <li>PAPER III - CT (Jet Engine)</li>
-          <li>PAPER II - General Engineering</li>
-          <li>PAPER I - Civil Aviation Requirement</li>
-        </ul>
-      </div>
-    </div>
+<script>
+    function formatDates() {
+        const experienceItems = document.querySelectorAll('.experience-item');
+        experienceItems.forEach(item => {
+            const from = item.getAttribute('data-from');
+            const to = item.getAttribute('data-to');
+            
+            const fromDate = new Date(from);
+            const toDate = to === 'present' ? new Date() : new Date(to);
+            
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    
+            const fromMonth = monthNames[fromDate.getMonth()];
+            const fromYear = fromDate.getFullYear();
+            const fromText = `${fromMonth} ${fromYear}`;
+            
+            let toText = '';
+            if (to === 'present') {
+                toText = 'Present';
+            } else {
+                const toMonth = monthNames[toDate.getMonth()];
+                const toYear = toDate.getFullYear();
+                toText = `${toMonth} ${toYear}`;
+            }
 
-    <div class="section">
-      <h2 onclick="toggleSection(this)">Educational Qualifications</h2>
-      <div class="section-content">
-        <ul>
-          <li>AME – Academy of Aerospace & Aviation, Indore (2008)</li>
-          <li>Intermediate – Grasim Higher Secondary School, Nagda (2005)</li>
-          <li>High School – Grasim Higher Secondary School, Nagda (2002)</li>
-        </ul>
-      </div>
-    </div>
+            let months = (toDate.getFullYear() - fromDate.getFullYear()) * 12 + (toDate.getMonth() - fromDate.getMonth());
+            if (toDate.getDate() < fromDate.getDate()) {
+                months--;
+            }
 
-    <div class="section">
-      <h2 onclick="toggleSection(this)">Personal Details</h2>
-      <div class="section-content">
-        <ul>
-          <li><span class="highlight">Father's Name:</span> Mr. Kaptan Singh Bhadauriya</li>
-          <li><span class="highlight">Nationality:</span> Indian</li>
-          <li><span class="highlight">Marital Status:</span> Married</li>
-          <li><span class="highlight">Gender:</span> Female</li>
-          <li><span class="highlight">Languages Known:</span> English, Hindi</li>
-          <li><span class="highlight">PAN Card:</span> BEYPB3931G</li>
-          <li><span class="highlight">Passport:</span> K7854019</li>
-          <li><span class="highlight">Permanent Address:</span> 113/547, Ambika Nagar, Near Kandla Airport, Kutch, Gujarat</li>
-        </ul>
-      </div>
-    </div>
+            const years = Math.floor(months / 12);
+            const remainingMonths = months % 12;
 
-    <button class="print-btn" onclick="window.print()">Print Resume</button>
-  </div>
-
-  <script>
-    function toggleSection(header) {
-      const content = header.nextElementSibling;
-      const isVisible = content.style.display === "block";
-      content.style.display = isVisible ? "none" : "block";
-      header.classList.toggle("active", !isVisible);
+            const durationText = `${years}y ${remainingMonths}m`;
+            
+            item.querySelector('.dates').textContent = `${fromText} – ${toText} (${durationText})`;
+        });
     }
 
-    function calculateExperience() {
-      const list = document.querySelectorAll('#experience-list li');
-      let totalMonths = 0;
+    window.onload = formatDates;
+</script>
 
-      list.forEach(li => {
-        const from = li.getAttribute('data-from');
-        let to = li.getAttribute('data-to');
-        const fromDate = new Date(from + "-01");
-        const toDate = to === 'present' ? new Date() : new Date(to + "-01");
-
-        let months = (toDate.getFullYear() - fromDate.getFullYear()) * 12 + (toDate.getMonth() - fromDate.getMonth());
-        totalMonths += months;
-
-        const years = Math.floor(months / 12);
-        const remainingMonths = months % 12;
-        li.innerHTML += ` <em>(${years}y ${remainingMonths}m)</em>`;
-      });
-
-      const totalYears = Math.floor(totalMonths / 12);
-      const totalRemMonths = totalMonths % 12;
-      document.getElementById('total-experience').innerHTML = `<strong>Total Experience:</strong> ${totalYears} years ${totalRemMonths} months`;
-    }
-
-    window.onload = calculateExperience;
-  </script>      
 </body>
 </html>

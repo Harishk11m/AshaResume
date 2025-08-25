@@ -1,0 +1,257 @@
+/* CSS Variables for easy theming */
+:root {
+    /* * CHANGED: All background colors are now pure White.
+     * CHANGED: All primary/dark text colors are now pure Black.
+     * ACCENT COLORS remain as pure Black/White based on where they're used.
+     */
+    --color-primary: #000000;          /* Pure Black (Sidebar Background) */
+    --color-accent: #000000;           /* Pure Black (Borders, Photo Border) - used for contrast on white/light backgrounds */
+    --color-accent-dark: #000000;      /* Pure Black */
+    --color-text-light: #FFFFFF;       /* Pure White (Text on Black Background) */
+    --color-text-dark: #000000;        /* Pure Black (Text on White Background) */
+    --color-background-main: #FFFFFF;  /* Pure White */
+    --color-background-page: #FFFFFF;  /* Pure White */
+    --color-subtle-detail: #000000;    /* Pure Black - used for any remaining subtle details */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* CHANGED: Background to pure white */
+    background-color: var(--color-background-page); 
+    font-weight: 300; 
+}
+.resume-container {
+    display: flex;
+    max-width: 1000px;
+    margin: 40px auto;
+    /* Box shadow is kept for structure, but is a shade */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); 
+    border-radius: 10px;
+    overflow: hidden;
+}
+.sidebar {
+    width: 35%;
+    /* CHANGED: Background to pure Black */
+    background-color: #f2f2f2;
+    /* Text is pure White on Black background */
+    color: black;
+    padding: 40px 30px;
+    text-align: center;
+}
+.main-content {
+    width: 65%;
+    /* CHANGED: Background to pure White */
+    background-color: white;
+    padding: 40px 50px;
+}
+.profile-photo-container {
+    margin-bottom: 25px;
+}
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Border is pure Black (color-accent is now black) */
+    border: 5px solid var(--color-accent);
+}
+.header h1 {
+    font-size: 2.8em;
+    margin: 0;
+    /* Text is pure White on Black background */
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.header p {
+    margin: 5px 0 20px;
+    font-size: 1.2em;
+    /* CHANGED: Subtle color to pure White */
+    color: black; 
+    font-weight: 300;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    font-size: 0.95em;
+}
+.contact-item span, .contact-item a {
+    margin-left: 0;
+}
+.contact-item a {
+    /* Link color is pure White on Black background */
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
+.contact-item a:hover {
+    /* Hover color is pure White */
+    color: #FFFFFF;
+}
+.section-title {
+    font-size: 1.8em;
+    /* Title color is pure Black */
+    color: black;
+    /* Border color is pure Black */
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+.sidebar .section-title {
+    /* Title color is pure White on Black background */
+    color: black;
+    /* Border is pure White on the sidebar */
+    border-color: #FFFFFF; 
+    margin-top: 30px;
+}
+
+/* Styles for the new clickable document links */
+.document-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.document-link {
+    display: block;
+    padding: 10px;
+    /* Background is pure Black */
+    background-color: grey;
+    /* Text is pure White */
+    color: #FFFFFF !important;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 700;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.1s;
+    /* Border is pure Black */
+    border: 1px solid #000000;
+}
+.document-link:hover {
+    /* Hover is still pure Black */
+    background-color: #000000;
+    transform: translateY(0); /* Remove subtle lift for a harsher look */
+}
+/* End of document link styles */
+
+
+.experience-item, .training-item, .list-item {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.job-title {
+    font-weight: 700;
+    /* Text is pure Black */
+    color: black;
+    font-size: 1.25em;
+    margin-bottom: 0px;
+}
+.company {
+    font-style: italic;
+    /* Text is pure Black */
+    color: #000000;
+    font-size: 1.05em;
+    margin-bottom: 0px;
+}
+.dates {
+    font-size: 0.9em;
+    /* Text is pure Black */
+    color: #000000;
+    display: block;
+    margin-bottom: 5px;
+}
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    /* Text is pure Black */
+    color: #000000;
+}
+/* General links are now pure white/blue for the sidebar section they are primarily used in. 
+   Keeping the original intent but using only pure white/black.
+*/
+a {
+    color: black;
+    text-decoration: none;
+
+}
+a:hover {
+    /* CHANGED: Hover color to pure White */
+    color: grey;
+    text-decoration: none;
+    
+}
+/* New styling for professional lists in main content */
+.main-content ul li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    /* CHANGED: List text color to pure Black */
+    color: #000000;
+}
+/* Custom pure black bullet point */
+.main-content ul li::before {
+    content: '•';
+    /* Bullet color is pure Black */
+    color: #000000;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+.summary-text {
+    line-height: 1.7;
+    font-size: 1.05em;
+    /* Text is pure Black */
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .resume-container {
+        flex-direction: column;
+        margin: 20px;
+    }
+    .sidebar, .main-content {
+        width: 100%;
+        padding: 20px;
+    }
+    .sidebar {
+        /* Border is pure Black */
+        border-bottom: 5px solid #000000;
+    }
+}
+@media print {
+    body {
+        background-color: white;
+    }
+    .resume-container {
+        box-shadow: none;
+        margin: 0;
+    }
+    .profile-photo {
+        /* Border is pure Black */
+        border: 2px solid #000000;
+    }
+    .sidebar {
+        page-break-after: avoid;
+        /* Sidebar background is pure Black */
+        background-color: #000000 !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    .main-content ul li::before {
+        /* Bullet is pure Black */
+        color: #000000;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+}
